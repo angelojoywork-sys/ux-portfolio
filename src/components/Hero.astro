@@ -8,16 +8,14 @@ import { site } from '../data/site';
   <!-- Phase 4: replace with generated 3D/AI object (transparent image or looping video) -->
   {site.heroImage
     ? <img class="object img" src={site.heroImage} alt="Chrome liquid-metal glasses" />
-    : <div class="object" role="img" aria-label="Hero object placeholder"></div>}
+    : null}
 </section>
 <style>
   .hero { padding-block: 12vh 8vh; }
-  h1 { grid-column: 1 / -1; margin: 0; font: 400 clamp(48px, 10vw, 148px)/0.98 var(--font-display); letter-spacing: -0.02em; }
+  h1 { grid-column: 1 / -1; margin: 0; font: 700 clamp(44px, 8.5vw, 128px)/1.02 var(--font-display); letter-spacing: -0.02em; text-align: center; }
   .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
   .inner { display: inline-block; }
-  .line:nth-child(2) { padding-left: 1.2em; }
-  .line:nth-child(3) { padding-left: 2.4em; }
   .object.img { border: 0; border-radius: 0; aspect-ratio: auto; object-fit: contain; }
-  .object { grid-column: 5 / span 4; aspect-ratio: 1; margin-top: 6vh; border-radius: 50%; border: 1px dashed var(--rule); }
-  @media (max-width: 720px) { .object { grid-column: 3 / span 8; } .line:nth-child(n) { padding-left: 0; } }
+  .object { grid-column: 4 / span 6; aspect-ratio: 1; margin-top: 6vh; border-radius: 50%; border: 1px dashed var(--rule); }
+  @media (max-width: 720px) { .object { grid-column: 3 / span 8; } }
 </style>
