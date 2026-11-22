@@ -4,6 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// Keep the hero exactly one screen tall below the top bar
+const bar = document.querySelector<HTMLElement>('.topbar');
+const setBar = () => bar && document.documentElement.style.setProperty('--topbar-h', `${bar.offsetHeight}px`);
+setBar();
+window.addEventListener('resize', setBar);
+document.fonts?.ready.then(setBar);
+
 // Live local-time clocks
 const clocks = document.querySelectorAll<HTMLElement>('[data-clock]');
 const tick = () => {
