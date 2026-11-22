@@ -1,21 +1,30 @@
 ---
 import { site } from '../data/site';
 ---
-<section class="hero grid" id="top">
+<section class="hero" id="top">
   <h1 aria-label={site.headline.join(' ')}>
     {site.headline.map((line) => <span class="line" aria-hidden="true"><span class="inner">{line}</span></span>)}
   </h1>
-  <!-- Phase 4: replace with generated 3D/AI object (transparent image or looping video) -->
-  {site.heroImage
-    ? <img class="object img" src={site.heroImage} alt="Chrome liquid-metal glasses" />
-    : null}
+  {site.heroImage && <img class="object" src={site.heroImage} alt="Liquid chrome smart glasses" />}
 </section>
 <style>
-  .hero { padding-block: 12vh 8vh; }
-  h1 { grid-column: 1 / -1; margin: 0; font: 700 clamp(44px, 8.5vw, 128px)/1.02 var(--font-display); letter-spacing: -0.02em; text-align: center; }
+  .hero {
+    min-height: calc(100svh - 64px);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2vh var(--gutter) 4vh; overflow: hidden;
+  }
+  h1 {
+    position: relative; z-index: 2; margin: 0; text-align: center;
+    font: 700 clamp(40px, 7.5vw, 112px)/1.02 var(--font-display); letter-spacing: -0.02em;
+  }
   .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
   .inner { display: inline-block; }
-  .object.img { mix-blend-mode: multiply; width: 100%; transform: scale(1.35); filter: brightness(1.12) contrast(1.08); -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 55%, transparent 100%); border: 0; border-radius: 0; aspect-ratio: auto; object-fit: contain; }
-  .object { grid-column: 3 / span 8; aspect-ratio: 1; margin-top: 0; border-radius: 50%; border: 1px dashed var(--rule); }
-  @media (max-width: 720px) { .object { grid-column: 1 / -1; } }
+  .object {
+    position: relative; z-index: 1;
+    width: min(52vw, 580px); margin-top: -7vh;
+    mix-blend-mode: multiply; filter: brightness(1.1) contrast(1.05);
+    -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 55%, transparent 100%);
+  }
+  @media (max-width: 720px) { .object { width: 80vw; } }
 </style>
