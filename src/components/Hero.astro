@@ -2,28 +2,35 @@
 import { site } from '../data/site';
 ---
 <section class="hero" id="top">
-  <h1 aria-label={site.headline.join(' ')}>
-    {site.headline.map((line) => <span class="line" aria-hidden="true"><span class="inner">{line}</span></span>)}
-  </h1>
+  <div class="grid inner-grid">
+    <h1 aria-label={site.headline.join(' ')}>
+      {site.headline.map((line) => <span class="line" aria-hidden="true"><span class="inner">{line}</span></span>)}
+    </h1>
+  </div>
   {site.heroImage && <img class="object" src={site.heroImage} alt="Liquid chrome smart glasses" />}
 </section>
 <style>
   .hero {
+    --gw: min(62vw, 880px);        /* glasses width */
+    --gh: calc(var(--gw) * 0.3);   /* glasses height (image is ~3.3:1) */
     position: relative; overflow: hidden;
-    height: calc(100svh - var(--topbar-h, 100px)); min-height: 480px;
-    padding: 0 var(--gutter);
-    display: flex; align-items: center; justify-content: center;
+    height: calc(100svh - var(--topbar-h, 100px)); min-height: 520px;
+    display: flex; align-items: flex-end;
+    /* headline's last line overlaps the top ~10% of the glasses */
+    padding-bottom: calc(var(--gh) * 0.9);
   }
+  .inner-grid { width: 100%; }
   h1 {
-    margin: 0; padding-bottom: 4vh; text-align: center;
-    font: 700 clamp(36px, min(8.6vw, 13vh), 132px)/1.02 var(--font-display); letter-spacing: -0.02em;
+    grid-column: 1 / -1; margin: 0; text-align: center;
+    font: 700 clamp(38px, min(9.6vw, 15.5vh), 150px)/0.94 var(--font-display);
+    letter-spacing: -0.035em;
   }
-  .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
+  /* overflow clips for the reveal; pad + pull back so descenders (g, p) stay intact */
+  .line { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
   .inner { display: inline-block; }
-  /* In front of the headline, resting on the bottom edge of the screen */
   .object {
-    position: absolute; z-index: 2; left: 0; right: 0; margin-inline: auto; bottom: 0;
-    width: min(56vw, 800px, 100vh);
+    position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; margin-inline: auto;
+    width: var(--gw);
   }
-  @media (max-width: 720px) { .object { width: 120vw; } }
+  @media (max-width: 720px) { .hero { --gw: 120vw; } }
 </style>

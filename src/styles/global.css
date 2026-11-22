@@ -11,6 +11,7 @@
 
   --gutter: clamp(16px, 3vw, 32px);
   --reading: 560px;
+  --page-max: 1360px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -32,7 +33,7 @@ img, video { max-width: 100%; display: block; }
 .muted { color: var(--muted); }
 
 /* 12-col grid for the landing page */
-.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); padding-inline: var(--gutter); }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); padding-inline: var(--gutter); max-width: var(--page-max); margin-inline: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
