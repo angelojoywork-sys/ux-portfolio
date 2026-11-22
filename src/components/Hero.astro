@@ -15,7 +15,7 @@ import { site } from '../data/site';
   h1 { grid-column: 1 / -1; margin: 0; font: 700 clamp(44px, 8.5vw, 128px)/1.02 var(--font-display); letter-spacing: -0.02em; text-align: center; }
   .line { display: block; overflow: hidden; padding-bottom: 0.08em; }
   .inner { display: inline-block; }
-  .object.img { border: 0; border-radius: 0; aspect-ratio: auto; object-fit: contain; }
-  .object { grid-column: 4 / span 6; aspect-ratio: 1; margin-top: 6vh; border-radius: 50%; border: 1px dashed var(--rule); }
-  @media (max-width: 720px) { .object { grid-column: 3 / span 8; } }
+  .object.img { mix-blend-mode: multiply; width: 100%; transform: scale(1.35); filter: brightness(1.12) contrast(1.08); -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 55%, transparent 100%); border: 0; border-radius: 0; aspect-ratio: auto; object-fit: contain; }
+  .object { grid-column: 3 / span 8; aspect-ratio: 1; margin-top: 0; border-radius: 50%; border: 1px dashed var(--rule); }
+  @media (max-width: 720px) { .object { grid-column: 1 / -1; } }
 </style>

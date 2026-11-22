@@ -11,7 +11,7 @@ export const site = {
   ],
   headline: ['Designing trust', 'for now and building', "what's to come"],
   // Drop the generated chrome-glasses image at public/hero-glasses.png (transparent PNG/WebP), then set this:
-  heroImage: '' as string,
+  heroImage: '/hero-glasses.jpg' as string,
   intro:
     'I am a UX and product designer working across research, interaction and systems. Currently focused on AI-native products.',
   about:
