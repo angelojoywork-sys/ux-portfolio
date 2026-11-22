@@ -9,7 +9,7 @@ export const site = {
     { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
     { label: 'Read.cv', href: 'https://read.cv/' },
   ],
-  headline: ['Designing', 'for now and building', "what's to come"],
+  headline: ['Designing for now', 'and building', "what's to come"],
   // Drop the generated chrome-glasses image at public/hero-glasses.png (transparent PNG/WebP), then set this:
   heroImage: '/hero-glasses.png' as string,
   intro:
