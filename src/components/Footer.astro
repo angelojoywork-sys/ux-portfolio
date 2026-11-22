@@ -1,0 +1,15 @@
+---
+import { site } from '../data/site';
+---
+<footer class="foot mono grid" id="contact">
+  <div class="a"><a href={`mailto:${site.email}`}>{site.email}</a></div>
+  <div class="b">{site.socials.map((s) => <a href={s.href} rel="noopener">{s.label}</a>)}</div>
+  <div class="c muted"><span data-clock data-tz={site.timeZone}>--:--</span> {site.location}</div>
+</footer>
+<style>
+  .foot { padding-block: 64px 32px; border-top: 1px solid var(--rule); margin-top: 96px; }
+  .a { grid-column: span 5; }
+  .b { grid-column: span 4; display: flex; gap: 16px; }
+  .c { grid-column: span 3; text-align: right; }
+  @media (max-width: 720px) { .a, .b, .c { grid-column: span 12; text-align: left; margin-bottom: 8px; } }
+</style>

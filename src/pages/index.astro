@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import TopBar from '../components/TopBar.astro';
+import Hero from '../components/Hero.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+const byDate = (a: { data: { date: Date } }, b: { data: { date: Date } }) => b.data.date.valueOf() - a.data.date.valueOf();
+const work = (await getCollection('work', (e) => !e.data.draft)).sort(byDate);
+const archives = (await getCollection('archives', (e) => !e.data.draft)).sort(byDate);
+---
+<Base>
+  <TopBar />
+  <main>
+    <Hero />
+    <section id="overview" class="grid sec">
+      <h2 class="mono">/01 Overview</h2>
+      <p class="lead" data-reveal>{site.intro}</p>
+    </section>
+    <section id="work" class="grid sec">
+      <h2 class="mono">/02 Work</h2>
+      <ul class="rows">
+        {work.map((w) => (
+          <li data-reveal><a href={`/work/${w.id}/`}><span>{w.data.title}</span><span class="mono muted">{w.data.label ?? w.data.timeframe}</span></a></li>
+        ))}
+      </ul>
+    </section>
+    <section id="about" class="grid sec">
+      <h2 class="mono">/03 About</h2>
+      <p class="lead" data-reveal>{site.about}</p>
+    </section>
+    <section id="archives" class="grid sec">
+      <h2 class="mono">/04 Archives</h2>
+      <ul class="rows">
+        {archives.map((a) => (
+          <li data-reveal><a href={`/archives/${a.id}/`}><span>{a.data.title}</span><span class="mono muted">{a.data.date.getFullYear()}</span></a></li>
+        ))}
+      </ul>
+    </section>
+  </main>
+  <Footer />
+  <script>import '../scripts/landing.ts';</script>
+</Base>
+<style>
+  .sec { padding-block: 72px; border-top: 1px solid var(--rule); }
+  h2 { grid-column: span 3; margin: 0; font-weight: 400; }
+  .lead { grid-column: 4 / span 8; margin: 0; font: 400 clamp(22px, 3vw, 36px)/1.25 var(--font-display); }
+  .rows { grid-column: 4 / -1; list-style: none; margin: 0; padding: 0; }
+  .rows a { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--rule); text-decoration: none; font-size: 18px; }
+  .rows a:hover span:first-child { color: var(--accent); }
+  @media (max-width: 720px) { h2 { grid-column: 1 / -1; margin-bottom: 16px; } .lead, .rows { grid-column: 1 / -1; } }
+</style>

@@ -1,0 +1,12 @@
+---
+interface Props { title?: string; }
+const { title } = Astro.props;
+---
+<aside>
+  {title && <strong>{title}</strong>}
+  <slot />
+</aside>
+<style>
+  aside { margin: 32px 0; padding: 16px 20px; border-left: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 6%, transparent); }
+  aside :global(p:last-child) { margin-bottom: 0; }
+</style>

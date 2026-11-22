@@ -1,0 +1,34 @@
+---
+import { site } from '../data/site';
+const links = [
+  { href: '#overview', label: '/01 Overview' },
+  { href: '#work', label: '/02 Work' },
+  { href: '#about', label: '/03 About' },
+  { href: '#archives', label: '/04 Archives' },
+];
+---
+<header class="topbar mono grid">
+  <div class="col">
+    <div>{site.name}</div>
+    <div class="muted">{site.role}</div>
+  </div>
+  <div class="col">
+    <div>{site.location}</div>
+    <div class="muted"><span data-clock data-tz={site.timeZone}>--:--</span> local</div>
+  </div>
+  <nav class="col links" aria-label="Sections">
+    {links.map((l) => <a href={l.href} data-nav>{l.label}</a>)}
+  </nav>
+  <div class="col contact">
+    <div>Contact</div>
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+  </div>
+</header>
+<style>
+  .topbar { position: sticky; top: 0; z-index: 10; padding-block: 14px; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); }
+  .col { grid-column: span 3; }
+  .links { display: flex; flex-direction: column; }
+  .links a, .contact a { text-decoration: none; }
+  .links a[aria-current='true'] { color: var(--accent); }
+  @media (max-width: 720px) { .col { grid-column: span 6; margin-bottom: 8px; } }
+</style>

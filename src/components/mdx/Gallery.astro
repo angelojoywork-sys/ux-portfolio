@@ -1,0 +1,10 @@
+---
+interface Props { images: { src: string; alt?: string }[]; columns?: number; }
+const { images, columns = 2 } = Astro.props;
+---
+<div class="gallery" style={`--cols:${columns}`}>
+  {images.map((i) => <img src={i.src} alt={i.alt ?? ''} loading="lazy" />)}
+</div>
+<style>
+  .gallery { display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 12px; margin: 32px 0; }
+</style>

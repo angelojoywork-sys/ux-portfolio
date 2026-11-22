@@ -1,0 +1,17 @@
+---
+interface Props { before: string; after: string; beforeAlt?: string; afterAlt?: string; caption?: string; }
+const { before, after, beforeAlt = 'Before', afterAlt = 'After', caption } = Astro.props;
+---
+<figure>
+  <div class="pair">
+    <div><img src={before} alt={beforeAlt} loading="lazy" /><span class="mono muted">Before</span></div>
+    <div><img src={after} alt={afterAlt} loading="lazy" /><span class="mono muted">After</span></div>
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+<style>
+  figure { margin: 32px 0; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pair span { display: block; margin-top: 6px; }
+  figcaption { margin-top: 8px; font-size: 12px; color: var(--muted); }
+</style>

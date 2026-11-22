@@ -1,0 +1,17 @@
+---
+interface Props { steps: { title: string; text?: string }[]; }
+const { steps } = Astro.props;
+---
+<ol class="steps">
+  {steps.map((s, i) => (
+    <li>
+      <span class="mono muted">{String(i + 1).padStart(2, '0')}</span>
+      <div><strong>{s.title}</strong>{s.text && <p>{s.text}</p>}</div>
+    </li>
+  ))}
+</ol>
+<style>
+  .steps { list-style: none; padding: 0; margin: 32px 0; border-top: 1px solid var(--rule); }
+  li { display: grid; grid-template-columns: 40px 1fr; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+  p { margin: 4px 0 0; color: var(--muted); }
+</style>
