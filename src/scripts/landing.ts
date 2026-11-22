@@ -34,7 +34,7 @@ document.querySelectorAll<HTMLElement>('main section[id]').forEach((s) => {
 if (!reduce) {
   // Staggered hero reveal
   gsap.from('.hero .inner', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: 0.12, delay: 0.1 });
-  gsap.from('.hero .object', { opacity: 0, scale: 0.92, duration: 1.2, ease: 'power3.out', delay: 0.5 });
+  gsap.from('.hero .object', { opacity: 0, y: 120, duration: 1.2, ease: 'power3.out', delay: 0.4 });
   // Subtle scroll reveals
   gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) =>
     gsap.from(el, { opacity: 0, y: 24, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%' } }),
