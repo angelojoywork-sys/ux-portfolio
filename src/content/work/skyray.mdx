@@ -1,0 +1,188 @@
+---
+title: "SkyRay: a flight booking website"
+date: 2026-05-05
+role: End-to-end UX designer (solo)
+timeframe: "2026"
+tags: [UX research, Interaction design, Web, Design system]
+summary: "A flight booking website designed from research to prototype: a survey, interviews, usability testing, a journey map, wireframes and a high-fidelity design system."
+label: "UX, 2026"
+---
+
+Booking a flight is a long, high-stakes form. This is how I took it from research to a high-fidelity prototype, designing the whole flow on my own as the final case study of my Professional Diploma in UX Design.
+
+<Figure src="/work/skyray/hifi-home.png" alt="SkyRay homepage with a black hero and a white search card" caption="The finished SkyRay homepage. The search card is the only thing the eye is asked to find." />
+
+The brief was a flight booking website for a startup airline. I named it SkyRay.
+
+## The problem
+
+Airline interfaces are often cluttered, split across many page loads, and unforgiving of mistakes. The brief asked for something fast, reliable and transparent, and it contained a real tension: how do you balance business goals like upselling and data collection against a user's need for a simple, low-friction booking?
+
+My approach rested on Hick's Law: fewer, simpler choices at each step mean faster decisions. I set three objectives:
+
+- **Reduce friction.** Cut unnecessary steps between search and payment.
+- **Match mental models.** Use familiar travel patterns so nothing needs learning.
+- **Prevent errors.** A linear flow where dates, passengers and seats can be edited without losing progress.
+
+## Process
+
+<Steps steps={[
+  {title:'Research',text:'Competitive benchmarking, a 10-person survey, 8 interviews, usability tests of an existing flow'},
+  {title:'Analysis',text:'Affinity diagram and a nine-stage customer journey map in Miro'},
+  {title:'Design',text:'User flow, Procreate sketches, wireframes, then a high-fidelity design system'},
+  {title:'Validation',text:'Moderated usability testing with 8 participants on the Figma prototype'}
+]} />
+
+## Research
+
+I started with the mental models behind flight booking.
+
+**Survey (10 respondents).** 80% prefer a desktop or laptop for the final booking, mostly because flight forms are complex. Ten people is too few for statistical claims, so I treated it as direction, not proof.
+
+**Interviews (8 participants).** Anxiety peaked at checkout, driven by the fear of entering something wrong with no clear way back.
+
+**Competitive benchmarking.** I compared leading booking sites to see which conventions are worth keeping and which flaws to fix.
+
+**Usability tests of an existing flow.** I recorded people booking on a current airline site and took live notes on every pause and frown, 215 observations in all, one column per participant.
+
+**Affinity diagram.** I sorted about 200 of those observations onto Miro as positive (79), neutral (80) or negative (47) stickies, then clustered them by theme: dates and search, seat preferences, baggage, passenger details, payment, desktop versus mobile, and the way people read. The negatives clustered around the same few moments, which is where the journey map below picks up.
+
+<Figure src="/work/skyray/affinity-diagram.png" alt="Affinity diagram on Miro, with sticky notes grouped into clusters" caption="The affinity diagram on Miro: each cluster is a moment in the booking flow, from dates and search to payment." />
+
+Their words did most of the work:
+
+- *"Is it a British Airways website or a flight booking website?"*
+- A fare called "Qsuite" with nowhere to find out what it was.
+- A date picker that disappears after the outbound choice, so the return date is a guess.
+- A "Nationality, as shown in document" label that raised the question: which document?
+- A forced log-in pop-up that appeared in the middle of choosing a car hire.
+
+<Callout title="The real problem was structural">The pain wasn't visual. It was the rigid logic of the flow: you can't change your mind, and nothing tells you what you're buying.</Callout>
+
+## What I learned
+
+**1. Fragmented flows feel like an obstacle course.** Every extra page load broke focus. People wanted one direction, from search to confirmation.
+
+**2. No flexibility punishes people who are still comparing.** Changing a date meant starting again. The flow had to be editable and non-destructive.
+
+**3. Upsells arrive at the wrong moment.** Hotel and car offers dropped into the middle of a complex task felt intrusive. People didn't object to the offers, only to the timing, so I moved them to the end.
+
+**4. Desktop is the trusted place to book.** 80% of participants preferred it, and described mobile as too complicated. I designed website-first.
+
+**5. Price decides everything.** 60% named price as their main motivator, and many left when costs weren't clear at fare selection. Price had to be visible early and stay visible.
+
+**6. Ryanair sets the expectations.** 60% had visited an airline site in the last four weeks, often Ryanair, and cited it as the example of too many choices across repeated page loads. I kept familiar conventions and cut the choice overload.
+
+### The journey map
+
+I mapped nine stages, from choosing airports to paying, and for each wrote what worked, what hurt, and the design response.
+
+<Figure src="/work/skyray/journey-map.png" alt="Customer journey map on Miro" caption="The journey map, condensed to what worked and what hurt at each of the nine stages." />
+
+| Stage | What hurt | What I did |
+| --- | --- | --- |
+| Airports | Unsure whose site it is | Positioning line in the hero; autocomplete shows city and code |
+| Dates | No prices; return date vanishes | Price on every day; range stays visible |
+| Search | Hard to compare days; codes confuse | A date strip for neighbouring days; city names in plain words |
+| Flights | Unexplained fare names | Plain fare names, like "Adult Basic Fare", in the summary |
+| Seats | Premium details inconsistent | One seat guide; the price shown under every seat |
+| Bags | Included vs paid unclear | "Included" pill against priced add-ons |
+| Details | Vague labels | Plain-language labels with helper text |
+| Review | Offers shown too early | One summary with edit links; offers after |
+| Payment | Accepted cards vary | Every accepted payment method shown up front |
+
+## Sketching and wireframes
+
+I turned the findings into structure by sketching fast in Procreate, then moving the best ideas into Figma. The result was a set of seven screens, from flight search to checkout, that I could test before spending time on visuals.
+
+<Gallery columns={3} images={[
+  {src:'/work/skyray/01-sketch-search.png',alt:'Procreate sketch of the search and results screens'},
+  {src:'/work/skyray/02-sketch-flights.png',alt:'Procreate sketch of flight results and fare selection'},
+  {src:'/work/skyray/03-sketch-checkout.png',alt:'Procreate sketch of review and payment'}
+]} />
+
+<Gallery columns={2} images={[
+  {src:'/work/skyray/04-wire-home.png',alt:'Wireframe: home and search'},
+  {src:'/work/skyray/05-wire-flights.png',alt:'Wireframe: flights with a date strip and sortable results'},
+  {src:'/work/skyray/06-wire-seats.png',alt:'Wireframe: seat map and selected seats'},
+  {src:'/work/skyray/07-wire-bags.png',alt:'Wireframe: bags per flight'},
+  {src:'/work/skyray/08-wire-extras.png',alt:'Wireframe: extras, offered late and skippable'},
+  {src:'/work/skyray/09-wire-pay.png',alt:'Wireframe: passenger details, review and payment'}
+]} />
+
+Three decisions came straight from the research: price stays on screen at every step, extras come after the main task and can be skipped, and any completed step can be edited without losing progress.
+
+## Testing the prototype
+
+I built a medium-fidelity Figma prototype and ran moderated usability sessions with **8 participants**. At this stage I was testing the clarity of the information and the structure of the flow, not the visuals.
+
+## High fidelity
+
+### A calm, signage-like system
+
+The moodboard was industrial and Swiss: airport signs, big numerals, lots of grey. I took that literally.
+
+- **Inter, only Inter.** One typeface, and the logo is the word "SkyRay" set in it.
+- **A 12-column grid** on a 1440px frame, 40px margins, 20px gutters and a 4px spacing base.
+- **Warm greys, a deep blue and one highlight.** Signal lime (`#C8F13A`) is reserved for the single main action on each screen. There's no orange or red in the brand, so an error colour always means an error.
+
+Colours are two-layer Figma variables: raw primitives, then semantic tokens like `bg/default` and `action/cta`. Components only use the semantic layer, so changing one primitive updates every use.
+
+<Figure src="/work/skyray/design-system.png" alt="SkyRay design system foundations: primitive and semantic colour, typography, spacing and radius" caption="The Foundations sheet in Figma: primitive colour, semantic colour, type scale, spacing and radius, all as variables or styles." />
+
+### Feedback changed the look
+
+My first hi-fi pass sat on warm grey and felt flat. The eye went to the large text under the search card instead of the card. I made three changes:
+
+1. A **black hero** reading "Where to next?", so the search card and lime button become the focal points.
+2. A **black band on every booking step** holding the progress tabs: current tab lime, completed white, upcoming outlined.
+3. **White pages with raised cards**, a hairline border and a soft shadow, in place of grey on grey.
+
+### Dates and prices
+
+<Figure src="/work/skyray/hifi-calendar.png" alt="Search card with a price calendar showing a price on every day" caption="A price on every day, so people can pick a cheap date without leaving the search." />
+
+<Gallery columns={2} images={[
+  {src:'/work/skyray/hifi-home-locations.png',alt:'Search card with both airports entered'},
+  {src:'/work/skyray/hifi-passengers.png',alt:'Search card with the passenger menu open'}
+]} />
+
+<Figure src="/work/skyray/hifi-flights.png" alt="Flight results with a date strip for outbound and return" caption="Outbound and return sit on one page, each with a date strip, so changing a day never means starting again." />
+
+### Seats and bags
+
+<Figure src="/work/skyray/hifi-seats.png" alt="Seat map with a seat guide and a selected seats summary" caption="One seat guide with three states: priced, yours, taken. The passenger sits on the left and selected seats are summarised on the right." />
+
+The Bags page is where "included versus paid" mattered most. Included bags carry a green pill, paid ones a bold price, and the selected option is tinted and checked.
+
+<Figure src="/work/skyray/hifi-bags.png" alt="Bags page with included and paid options" caption="Included and paid are now impossible to confuse." />
+
+Offers come last, as the research asked. Extras sit after bags and can be skipped.
+
+<Figure src="/work/skyray/hifi-extras.png" alt="Extras page with optional add-ons" caption="Extras arrive at the end of the flow, never in the middle of the task." />
+
+### Review, pay, confirm
+
+Passenger details and the trip summary share one screen, so people can check what they're paying for while they type. The summary is collapsible, so the page stays short, the total sits in a black bar that's hard to miss, and every accepted payment method is visible before anyone types a card number.
+
+<Figure src="/work/skyray/hifi-review.png" alt="Review and pay screen with passenger details and an itemised summary" caption="Details on the left, an itemised summary on the right, one total at the bottom." />
+
+<Gallery columns={2} images={[
+  {src:'/work/skyray/hifi-payment.png',alt:'Payment step with card details entered'},
+  {src:'/work/skyray/hifi-confirmed.png',alt:'Booking confirmation'}
+]} />
+
+In total I designed 34 screens, including every state along the way: typing in the airport fields, an empty form, a half-filled one, a card entered.
+
+## What I'd do differently
+
+This was a strong foundation in user-centred design, and I'd push it further today.
+
+- **Research at scale.** For a real airline I'd add A/B tests on price display and heatmaps to see exactly where people drop off, plus diary studies to map the whole trip.
+- **Collaborate earlier.** Working solo, I missed the challenge of other minds. I'd run design sprints with peers and stakeholders to stress-test edge cases.
+- **Dig into why laptops feel safer.** Contextual inquiry on mobile booking could find the trust gaps that keep people off their phones for high-stakes purchases.
+- **Test the redesign.** The 8-person test ran on the wireframe prototype, not on the high-fidelity SkyRay design. I won't claim it's better until I've put it in front of people.
+
+Designing for airlines is a balance between business profitability and user sanity. This project is where I learned to hold that balance with clarity, error prevention and content strategy.
+
+*Flights, prices and airline names are fictional.*
