@@ -15,5 +15,5 @@ export const site = {
   intro:
     'I am a UX and product designer working across research, interaction and systems. Currently focused on AI-native products.',
   about:
-    'Placeholder about copy: your story, skills, experience and what you are looking for.',
+    "I'm a UX and product designer with a passion for bringing solutions and aesthetics together. Raised in Dubai, with a Master's in Media & Communications from the University of Galway and a Professional Diploma in UX Design from the UX Design Institute in Dublin, I design intuitive, meaningful experiences that work for users and businesses alike.",
 };
